@@ -1,0 +1,610 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.jpg">
+  <link rel="icon" href="/img/favicon.jpg">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="知临">
+  <meta name="keywords" content="">
+  
+  <title>git 笔记 - 知临的笔记博客</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"chiyujiang.gitee.io","root":"/","version":"1.8.9","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>知临</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-music"></i>
+                音乐
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://music.163.com/">
+                    
+                    网易云音乐
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://y.qq.com/">
+                    
+                    QQ音乐
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/music/">
+                    
+                    最近常听
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/wallhaven-4yylek.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="git 笔记">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      知临
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-03-22 11:11" pubdate>
+        2021年3月22日 上午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.1k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      14
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">git 笔记</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：2021年3月23日 凌晨
+                
+              </p>
+            
+            <div class="markdown-body">
+              <h1 id="Git笔记"><a href="#Git笔记" class="headerlink" title="Git笔记"></a>Git笔记</h1><h2 id="初始化配置"><a href="#初始化配置" class="headerlink" title="初始化配置"></a>初始化配置</h2><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs jboss-cli">git <span class="hljs-params">--version</span>			<span class="hljs-comment">#查看版本</span><br>git config <span class="hljs-params">--global</span> user.name <span class="hljs-string">&quot;chiyujiang&quot;</span>						<span class="hljs-comment">#配置你的名字</span><br>git config <span class="hljs-params">--global</span> user.email <span class="hljs-string">&quot;jiangzhilin320@outlook.com&quot;</span>		<span class="hljs-comment">#配置你的邮箱</span><br>git config <span class="hljs-params">--list</span>		<span class="hljs-comment">#查看你的配置</span><br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="git基础命令"><a href="#git基础命令" class="headerlink" title="git基础命令"></a>git基础命令</h2><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><code class="hljs jboss-cli">git init            <span class="hljs-comment">#初始化仓库</span><br>git status          <span class="hljs-comment">#查看文件的状态</span><br>git diff            <span class="hljs-comment">#查看哪些修改还没有暂存   对比工作区和暂存区有不同的文件</span><br>git  diff <span class="hljs-params">--cache</span>   <span class="hljs-comment">#查看未提交的暂存</span><br><br>git add . 			<span class="hljs-comment">#把所有修改文件都添加到 缓存区</span><br>git add 文件名			<span class="hljs-comment">#把当前文件添加到 缓存区</span><br><br>git commit -m <span class="hljs-string">&quot;注释内容&quot;</span>		<span class="hljs-comment">#把修改文件添加到 版本库</span><br>git commit -a -m <span class="hljs-string">&quot;注释内容&quot;</span>     <span class="hljs-comment">#参数设置修改文件后不需要执行 git add 命令，直接来提交</span><br><br>git rebase -i head~~		<span class="hljs-comment">#合并最后两个commit</span><br><br>git log				<span class="hljs-comment">#查看提交到版本库的日志</span><br>git log <span class="hljs-params">--oneline</span>		<span class="hljs-comment"># --oneline 选项来查看历史记录的简洁的版本</span><br><br>git reflog     <span class="hljs-comment">#查看所有的commit记录 包括commit的ID值，方便后面的回退</span><br><br><span class="hljs-comment">#回退版本</span><br><span class="hljs-params">--hard</span>		回退版本库、暂存区、工作区<br><span class="hljs-params">--mixed</span>		回退版本库、暂存区 （默认选择）<br><span class="hljs-params">--soft</span>		回退版本库<br><span class="hljs-comment">#如：</span><br>git reset <span class="hljs-params">--hard</span> HEAD~  			  <span class="hljs-comment"># 回退1个版本  </span><br>git reset <span class="hljs-params">--hard</span> HEAD~n  			  <span class="hljs-comment"># 回退n个版本  </span><br>git reset <span class="hljs-params">--hard</span> comment的ID值  		 <span class="hljs-comment"># 回退到某个版本回退点之前的所有信息。 </span><br>git reset <span class="hljs-params">--hard</span> origin/master    	  <span class="hljs-comment"># 将本地的状态回退到和远程的一样 </span><br><br>git reset <span class="hljs-params">--soft</span> HEAD~<br>。。。。。。<br><br><br>git rm 文件名				<span class="hljs-comment">#在工作区中删除文件</span><br>git mv 旧的文件名 新的文件名		<span class="hljs-comment">#重命名</span><br>git checkout -- 文件名			<span class="hljs-comment">#将文件从暂存区恢复到工作区</span><br><br><br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="Git分支"><a href="#Git分支" class="headerlink" title="Git分支"></a>Git分支</h2><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm">分支的本质其实就是一个提交对象!!!<br><span class="hljs-symbol">HEAD:</span> 是一个指针 它默认指向master分支 切换分支时其实就是让HEAD指向不同的分支<br>  <br>git  log --oneline --decorate --graph --all : 查看整个项目的分支图  <br><br>git <span class="hljs-keyword">branch </span>               <span class="hljs-comment">#显示分支列表</span><br>git <span class="hljs-keyword">branch </span>分支名          <span class="hljs-comment">#创建分支</span><br>git checkout 分支名        <span class="hljs-comment">#切换分支</span><br>git <span class="hljs-keyword">branch </span>-d 分支名		<span class="hljs-comment">#删除空的分支 删除已经被合并的分支</span><br>git <span class="hljs-keyword">branch </span>-D 分支名       <span class="hljs-comment">#强制删除分支</span><br><br><span class="hljs-comment">#在主分支下合并其他分支</span><br>git checkout master<br>git merge 分支名<br><br>git <span class="hljs-keyword">branch </span>-v		<span class="hljs-comment">#查看分支指向的最新的提交</span><br><br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="Git远程仓库"><a href="#Git远程仓库" class="headerlink" title="Git远程仓库"></a>Git远程仓库</h2><blockquote>
+<p>远程协作的基本流程</p>
+</blockquote>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-number">1.</span> 初始化远程仓库<br>    初始化一个空的仓库; 在github上操作<br><span class="hljs-number">2.</span>创建本地仓库  <br>    <span class="hljs-meta">#创建好后有提示命令行操作</span><br>    <br>    git remote 别名 仓库地址(https)<br>    git <span class="hljs-keyword">init</span> 			<span class="hljs-meta">#将源码复制进来</span><br>    git config --<span class="hljs-keyword">global</span> user.name <span class="hljs-string">&quot;chiyujiang&quot;</span>						<span class="hljs-meta">#配置你的名字</span><br>    git config --<span class="hljs-keyword">global</span> user.email <span class="hljs-string">&quot;jiangzhilin320@outlook.com&quot;</span>		<span class="hljs-meta">#配置你的邮箱</span><br>    git <span class="hljs-keyword">add</span> .<br>    git commit -m <span class="hljs-string">&quot;注释&quot;</span> <br>    <br><span class="hljs-number">3.</span> 项目经理推送本地仓库到远程仓库<br>    <br>    git remote -v			<span class="hljs-meta">#查看远程库</span><br>    git push  				<span class="hljs-meta">#默认在master </span><br>    <br>    <span class="hljs-meta">#一般不在master操作</span><br>    git branch develop		  	<span class="hljs-meta">#可创建一个开发分支</span><br>    git checkout develop      	<span class="hljs-meta">#切换到develop分支</span><br>    git <span class="hljs-keyword">add</span> .<br>    git commit -m <span class="hljs-string">&quot;注释&quot;</span><br>    git push --<span class="hljs-keyword">set</span>-upstream origin develop    <span class="hljs-meta">#推送到远程仓库并建一个 develop 分支</span><br>    <br>    <br> <span class="hljs-number">4.</span> 项目邀请成员 &amp; 成员接受邀请<br> 	  清理windows凭据<br>      在github上操作  <br><br><span class="hljs-number">5.</span> 成员克隆远程仓库<br>    git clone  仓库地址 (在本地生成.git文件 默认为远程仓库配了别名 orgin) <br>如: git clone https:<span class="hljs-comment">//gitee.com/chiyujiang/git-demo.git</span><br>    注：只有在克隆的时候 本地分支master 和 远程跟踪分支别名/master 是有同步关系的<br><span class="hljs-number">6.</span> 成员做出贡献<br>    应创建新的分支<br>    git branch feature-f1		  	<span class="hljs-meta">#可创建一个成员自己的开发分支</span><br>    git checkout feature-f1      	<span class="hljs-meta">#切换到feature-f1分支</span><br>    修改源码文件<br>    git <span class="hljs-keyword">add</span> .<br>    git commit -m <span class="hljs-string">&quot;注释&quot;</span>  <br>    git push --<span class="hljs-keyword">set</span>-upstream origin feature-f1 (输入用户名 密码;推完之后会附带生成远程跟踪分支) <br>    <br><span class="hljs-number">7.</span> 项目经理更新修改<br>    git fetch 别名 (将修改同步到远程跟踪分支上)<br>    git merge 远程跟踪分支<br></code></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="SSH公钥"><a href="#SSH公钥" class="headerlink" title="SSH公钥"></a>SSH公钥</h2><figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs gherkin"><span class="hljs-comment">#使用以下命令生成 SSH Key</span><br>$ ssh-keygen -t rsa -C <span class="hljs-string">&quot;jiangzhilin320@outlook.com&quot;</span><br><br>Generating public/private rsa key pair.<br>Enter file in which to save the key (/c/Users/Administrator/.ssh/id_rsa):<br>/c/Users/Administrator/.ssh/id_rsa already exists.<br>Overwrite (y/n)? y<br>Enter passphrase (empty for no passphrase):<br>Enter same passphrase again:<br>Your identification has been saved in /c/Users/Administrator/.ssh/id_rsa<br>Your public key has been saved in /c/Users/Administrator/.ssh/id_rsa.pub     <span class="hljs-comment">#公钥在这文件路径下</span><br>The key fingerprint is:<br>SHA256:ahlXZY2UZDn1FdhapT6wTEnPXijT1S7Z5P8s0NVKyQs jiangzhilin320<span class="hljs-meta">@outlook.com</span><br>The key&#x27;s randomart image is:<br>+---[RSA 3072]----+<br>|<span class="hljs-string">           oB*+.B</span>|<br>|<span class="hljs-string">           ==*.B+</span>|<br>|<span class="hljs-string">          . *oOB+</span>|<br>|<span class="hljs-string">         . oEO*.*</span>|<br>|<span class="hljs-string">      . S   o++=.</span>|<br>|<span class="hljs-string">       =    . +..</span>|<br>|<span class="hljs-string">      +      . ..</span>|<br>|<span class="hljs-string">     .        . o</span>|<br>|<span class="hljs-string">               . </span>|<br>+----[SHA256]-----+<br><br><br></code></pre></td></tr></table></figure>
+
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E5%B7%A5%E5%85%B7/">工具</a>
+                    
+                      <a class="hover-with-bg" href="/categories/%E5%B7%A5%E5%85%B7/%E5%BC%80%E5%8F%91/">开发</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/git/">git</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/03/22/Docker%20%E5%AE%89%E8%A3%85%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Docker 安装常用软件</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/03/22/Redis%20%E7%AC%94%E8%AE%B0/">
+                        <span class="hidden-mobile">Redis 笔记</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    
+      <script type="text/javascript">
+        var disqus_config = function() {
+          this.page.url = 'https://chiyujiang.gitee.io/2021/03/22/git%20%E7%AC%94%E8%AE%B0/';
+          this.page.identifier = '/2021/03/22/git%20%E7%AC%94%E8%AE%B0/';
+        };
+        Fluid.utils.lazyComments('disqus_thread', function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//' + 'fluid' + '.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', new Date());
+          (d.head || d.body).appendChild(s);
+        });
+      </script>
+    
+    <noscript>Please enable JavaScript to view the
+      <a target="_blank" href="https://disqus.com/?ref_noscript" rel="nofollow noopener noopener">comments powered by Disqus.</a>
+    </noscript>
+  </div>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+  <div class="col-lg-7 mx-auto nopadding-x-md">
+    <div class="container custom post-custom mx-auto">
+      <img src="/img/weixinzanshangma.png" srcset="/img/loading.gif" lazyload class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">
+    </div>
+  </div>
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="" rel="nofollow noopener"><span>笔记</span></a> <i class="iconfont icon-love"></i> <a href="" rel="nofollow noopener"><span>博客</span></a> 
+  </div>
+  
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        京ICP证123456号
+      </a>
+    </span>
+    
+      
+        <span>
+          <a
+            href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=123456"
+            rel="nofollow noopener"
+            class="beian-police"
+            target="_blank"
+          >
+            
+              <span style="visibility: hidden; width: 0">|</span>
+              <img src="/img/police_beian.png" srcset="/img/loading.gif" lazyload alt="police-icon"/>
+            
+            <span>京公网安备123456号</span>
+          </a>
+        </span>
+      
+    
+  </div>
+
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      $('#local-search-input').on('click', function() {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      });
+      $('#modalSearch').on('shown.bs.modal', function() {
+        $('#local-search-input').focus();
+      });
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
