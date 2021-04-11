@@ -22,17 +22,17 @@
     
     <tags>
       
+      <tag>Docker</tag>
+      
+      <tag>Nginx</tag>
+      
       <tag>Java</tag>
       
-      <tag>SpringBoot</tag>
+      <tag>Spring Boot</tag>
       
       <tag>Vue</tag>
       
       <tag>Linux</tag>
-      
-      <tag>Docker</tag>
-      
-      <tag>Nginx</tag>
       
       <tag>RuoYi-Vue</tag>
       
@@ -94,8 +94,6 @@
       
       <tag>Docker</tag>
       
-      <tag>Nginx</tag>
-      
       <tag>MySQL</tag>
       
       <tag>Redis</tag>
@@ -103,6 +101,8 @@
       <tag>MongoDB</tag>
       
       <tag>ElasticSearch</tag>
+      
+      <tag>Nginx</tag>
       
       <tag>RabbitMQ</tag>
       
@@ -115,7 +115,7 @@
   
   
   <entry>
-    <title>Git 使用笔记</title>
+    <title>Git</title>
     <link href="/2021/03/22/Git%20%E7%AC%94%E8%AE%B0/"/>
     <url>/2021/03/22/Git%20%E7%AC%94%E8%AE%B0/</url>
     
