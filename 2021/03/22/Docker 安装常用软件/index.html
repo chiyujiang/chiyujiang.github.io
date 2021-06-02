@@ -241,7 +241,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2.4k 字
+      2.6k 字
     </span>
   
 
@@ -251,7 +251,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      39
+      41
        分钟
     </span>
   
@@ -437,6 +437,23 @@
 
 
 
+<hr>
+<h2 id="Docker安装Nacos"><a href="#Docker安装Nacos" class="headerlink" title="Docker安装Nacos"></a>Docker安装Nacos</h2><ul>
+<li><strong>nacos更新得比较快，安装前最好先搜索查看一下版本</strong> </li>
+</ul>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://nacos.io/zh-cn/docs/quick-start-docker.html">https://nacos.io/zh-cn/docs/quick-start-docker.html</a></p>
+</blockquote>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs routeros"><span class="hljs-comment">#这里安装 以 1.3.2版本为例</span><br>docker pull nacos/nacos-server:1.3.2<br><span class="hljs-comment">#创建映射文件夹</span><br>mkdir -p /mydata/nacos1.3.2/logs<br><br><span class="hljs-comment"># -e MODE=standalone 为单机   默认数据库 MySQL</span><br>docker <span class="hljs-builtin-name">run</span> --name nacos1.3.2 \<br>-e <span class="hljs-attribute">PREFER_HOST_MODE</span>=ip \<br>-e <span class="hljs-attribute">MODE</span>=standalone \<br>-e <span class="hljs-attribute">SPRING_DATASOURCE_PLATFORM</span>=mysql \<br>-e <span class="hljs-attribute">MYSQL_SERVICE_HOST</span>=47.119.183.206 \<br>-e <span class="hljs-attribute">MYSQL_SERVICE_PORT</span>=3306 \<br>-e <span class="hljs-attribute">MYSQL_SERVICE_USER</span>=root \<br>-e <span class="hljs-attribute">MYSQL_SERVICE_PASSWORD</span>=root \<br>-e <span class="hljs-attribute">MYSQL_SERVICE_DB_NAME</span>=nacos_config \<br>-e <span class="hljs-attribute">TIME_ZONE</span>=<span class="hljs-string">&#x27;Asia/Shanghai&#x27;</span> \<br>-v /mydata/nacos1.3.2/logs:/home/nacos/logs \<br>-p 8848:8848 \<br>-d nacos/nacos-server:1.3.2<br><br><span class="hljs-comment">#开机自启</span><br>docker update nacos1.3.2 <span class="hljs-attribute">--restart</span>=always<br><br><br></code></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li><strong>Nacos环境变量配置</strong></li>
+</ul>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://nacos.io/zh-cn/docs/quick-start-docker.html">https://nacos.io/zh-cn/docs/quick-start-docker.html</a></p>
+</blockquote>
 <hr>
 <h2 id="Docker安装Nginx"><a href="#Docker安装Nginx" class="headerlink" title="Docker安装Nginx"></a>Docker安装Nginx</h2><ul>
 <li>随便启动一个nginx实例，只是为了复制出配置</li>
